@@ -3,6 +3,7 @@
 const co = require("co");
 const RequestError = require("./lib/request_error");
 const request = require("./lib/retry_request");
+const util = require("./lib/util");
 
 
 let createFunction = function( host, option ) {
@@ -11,7 +12,7 @@ let createFunction = function( host, option ) {
         
         let args = Object.assign({},param);
         let opt = {
-            url:genUrl(host, option.path, args),
+            url:util.createUrl(host, option.path, args),
             method:(args["method"]|| 'GET' ).toUpperCase(),
             json:true
         };
@@ -43,7 +44,7 @@ let createFunction = function( host, option ) {
 
 class MicroService {
 
-    constructor (config, log ) {
+    constructor (config , log ) {
         if(!config) {
             throw new Error('need config to init.');
         }
@@ -53,7 +54,7 @@ class MicroService {
             let c = config[key],
                 host = c.host;
             this[key] = c.api.reduce((service, api) => {
-                service[api.name] = genFunction( host, api );
+                service[api.name] = createFunction( host, api );
                 return service;
             },{});
         }

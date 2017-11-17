@@ -9,7 +9,7 @@
  * @param {} args
  * @returns {} 
  */
-exports.crateUrl = function( host, path, args ){
+exports.createUrl = function( host, path, args ){
 
     let test = /\/:[a-z,A-Z,0-9]+/g;
     let key = path.match(test);
