@@ -1,6 +1,5 @@
 
   [![NPM version][npm-image]][npm-url]
-  [![build status][travis-image]][travis-url]
 
   A enjoyable http client for restfull microservice to make request to http microservice without any coding.
   
@@ -65,5 +64,5 @@ $ npm install http-microservice-client
   
   MIT
 
-[npm-image]: https://img.shields.io/npm/v/{your package name}.svg?style=flat
+[npm-image]: https://img.shields.io/npm/v/http-microservice-client.svg?style=flat
 [npm-url]: https://www.npmjs.com/package/http-microservice-client
