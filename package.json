@@ -1,6 +1,6 @@
 {
   "name": "http-microservice-client",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "description": "nodejs http client for microService",
   "main": "src/index.js",
   "scripts": {
