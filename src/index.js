@@ -24,7 +24,7 @@ let createFunction = function( host, option ) {
             },{});
         }
         
-        if( opt.method ==='GET' ) {
+        if( opt.method ==='GET' || opt.method === 'DELETE' ) {
             opt.qs = args;
         } else {
             opt.body = args;

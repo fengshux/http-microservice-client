@@ -59,6 +59,7 @@ $ npm install http-microservice-client
     }
 
 ```
+  In api config default method is 'GET'. 
 
 # License
   
