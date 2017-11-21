@@ -13,7 +13,7 @@ let createFunction = function( host, option ) {
         let args = Object.assign({},param);
         let opt = {
             url:util.createUrl(host, option.path, args),
-            method:(args["method"]|| 'GET' ).toUpperCase(),
+            method:(option["method"]|| 'GET' ).toUpperCase(),
             json:true
         };
         
@@ -29,7 +29,7 @@ let createFunction = function( host, option ) {
         } else {
             opt.body = args;
         }
-        
+
         let res = yield request(opt);
         
         if(/^2\d{2}$/.test(res.statusCode)) {
