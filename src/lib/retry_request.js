@@ -16,7 +16,7 @@ module.exports = function( option ){
             request(option,fn);
         },(err, res) => {
             if(err) {
-                console.err(err);
+                console.error(err);
                 return reject(err);
             }
             return resolve(res);
