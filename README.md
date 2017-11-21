@@ -61,6 +61,7 @@ $ npm install http-microservice-client
 ```
 
   In api config default method is 'GET'. The Object of agument you passed to the generated function will append to qs of request if the method is 'GET' or 'DELETE', but it will be body in opposite. It should explicate headers in api config if the request is needed.
+
   It will throw a RequestError when the response.statusCode is not 2xx. RequestError contains a code which equls the response.statusCode and a message from response.
     
 # License
