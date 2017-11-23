@@ -2,9 +2,9 @@
 
   [![NPM version][npm-image]][npm-url]
 
-  A enjoyable http client for restfull microservice to make request to http microservice without any coding.
+  An enjoyable HTTP client for restfull microservice to make request to http microservice without any codes.
   
-  All http requests in json file will be generator a Promise function in this client. 
+  All HTTP requests in json file will be generated a Promise function in this client. 
 
 ## Installation
 
@@ -60,9 +60,9 @@ $ npm install http-microservice-client
 
 ```
 
-  In api config default method is 'GET'. The Object of agument you passed to the generated function will append to qs of request if the method is 'GET' or 'DELETE', but it will be body in opposite. It should explicate headers in api config if the request is needed.
+  In api config default method is 'GET'. The Object of agument you passed to the generated function will append to qs of request if the method is 'GET' or 'DELETE', but it will be body oppositely. It should explicate headers in api config if the request is needed.
 
-  It will throw a RequestError when the response.statusCode is not 2xx. RequestError contains a code which equls the response.statusCode and a message from response.
+  It will throw a RequestError when the response.statusCode is not 2xx. RequestError contains a code which equls to the response.statusCode and a message from response.
     
 # License
   
