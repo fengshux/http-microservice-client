@@ -30,7 +30,17 @@ let createFunction = function( host, option ) {
             opt.body = args;
         }
 
+        if( this.__trace ) {
+            this.__trace.span.clientSend();
+            this._log.info(this.__trace);
+        }
+
         let res = yield request(opt);
+
+        if( this.__trace ) {
+            this.__trace.span.clientReceive();
+            this.log.info(this.__trace);
+        }
         
         if(/^2\d{2}$/.test(res.statusCode)) {
             return res.body;
@@ -48,7 +58,7 @@ class MicroService {
         if(!config) {
             throw new Error('need config to init.');
         }
-        log = log || console;
+        this._log = log || console;
 
         for( let key in config ) {
             let c = config[key],
@@ -57,6 +67,25 @@ class MicroService {
                 service[api.name] = createFunction( host, api );
                 return service;
             },{});
+        }
+
+
+        for( let key in config ) {
+
+            this[key]["_trace"] = function( trace ) {
+                let traceid;
+                if( util.isObject( trace ) ) {
+                    traceid = trace.id;
+                } else {
+                    traceid = trace;
+                }
+
+                let trace_data = new HttpTrace(traceid);
+                let service = Object.assign({}, this);
+                service.__trace = trace_data;
+                return service;
+            };
+            
         }
     }
 }

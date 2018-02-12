@@ -23,3 +23,16 @@ exports.createUrl = function( host, path, args ){
         return host + path;
     }
 };
+
+
+exports.isObjet = function( obj ) {
+
+    return Object.prototype.toString.call( obj ) === "[object Object]";
+}
+
+
+exports.isString = function( str ) {
+
+    return Object.prototype.toString.call( str ) === "[object String]";
+}
+
